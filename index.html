@@ -343,9 +343,9 @@
         const baseURL = url.substring(0, url.lastIndexOf("/") + 1);
         const manager = new THREE.LoadingManager();
         manager.onError = (item) => console.warn("[GLTF 資源讀取失敗]", item);
-        manager.onStart = (url, loaded, total) =>
-          console.log("[載入開始]", url, loaded, "/", total);
-        manager.onLoad = () => console.log("[載入完成]");
+        // manager.onStart = (url, loaded, total) =>
+          // console.log("[載入開始]", url, loaded, "/", total);
+        // manager.onLoad = () => console.log("[載入完成]");
 
         const loader = new GLTFLoader(manager);
         loader.setDRACOLoader(dracoLoader);
