@@ -140,7 +140,6 @@
       // ====== 資產清單（沿用原始路徑） ======
       // 若你的貼圖是 stereoscopic top/bottom，請把 mode 改成 'stereoTB'（下方提供 mono 先行版本）。
       const skyboxes = [
-        { url: "assets/textures/alps_field2.jpg", mode: "mono" },
         { url: "assets/textures/alps_field.jpg", mode: "stereoTB" },
         { url: "assets/textures/chess-pano-4k.jpg", mode: "stereoTB" },
         { url: "assets/textures/rogland_clear_night.jpg", mode: "stereoTB" },
@@ -213,9 +212,6 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.mapping = THREE.EquirectangularReflectionMapping;
-            tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-            const envRT = pmrem.fromEquirectangular(tex);
-            scene.environment = envRT.texture;
 
             disposeSky();
             const geo = new THREE.SphereGeometry(60, 64, 64);
@@ -250,10 +246,6 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.mapping = THREE.EquirectangularReflectionMapping;
-            tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-            const envRT = pmrem.fromEquirectangular(tex);
-            scene.environment = envRT.texture;
-
 
             disposeSky();
             const geo = new THREE.SphereGeometry(60, 64, 64);
@@ -460,8 +452,9 @@
       document.getElementById("btnModel").addEventListener("click", nextModel);
 
       // ====== 初始化：先載一個背景和模型 ======
-      nextBackground();
       nextModel();
+      nextBackground();
+      
 
       // ====== 主迴圈 ======
       renderer.setAnimationLoop(() => {
