@@ -74,8 +74,8 @@
   <body>
     <div id="loading" class="hidden">載入中…</div>
     <div id="ui">
-      <button id="btnBg" class="btn">Background <br>4組 = alps, chess, night, snow</button>
-      <button id="btnModel" class="btn">GLTF<br>5組 = horse, cat, duck, plant, dog</button>
+      <button id="btnBg" class="btn">5組 Background<br>paris, alps, chess, night, snow</button>
+      <button id="btnModel" class="btn">5組 GLTF<br>horse, cat, duck, plant, dog</button>
     </div>
     <div class="tag">Voice VR - 2025.09.17</div>
     <script type="importmap">
@@ -146,6 +146,7 @@
       // ====== 資產清單（沿用原始路徑） ======
       // 若你的貼圖是 stereoscopic top/bottom，請把 mode 改成 'stereoTB'（下方提供 mono 先行版本）。
       const skyboxes = [
+        { url: "assets/textures/paris.jpg", mode: "stereoTB" },
         { url: "assets/textures/alps_field.jpg", mode: "stereoTB" },
         { url: "assets/textures/chess-pano-4k.jpg", mode: "stereoTB" },
         { url: "assets/textures/rogland_clear_night.jpg", mode: "stereoTB" },
