@@ -97,7 +97,9 @@
       scene.background = new THREE.Color(0x000000);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.toneMappingExposure = 1.0;            // 中性曝光
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.NoToneMapping;    // 取消色調映射
+      renderer.toneMappingExposure = 1.6;            // 中性曝光
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.xr.enabled = true;
@@ -154,6 +156,7 @@
       ];
 
       const models = [
+        // "assets/models/03_1__blender.glb",  
         "assets/models/chair_puff.gltf/chair_puff.gltf",  
         "assets/models/horse_statue_01_4k.gltf/horse_statue_01_4k.gltf",
         "assets/models/concrete_cat_statue_4k.gltf/concrete_cat_statue_4k.gltf",
